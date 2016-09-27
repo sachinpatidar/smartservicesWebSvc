@@ -35,10 +35,13 @@ namespace gmcscoServices.Model
         [Column(TypeName = "varchar")]
         [DataMember]
         public string Password { get; set; }
-        [MaxLength(15)]
-        [Column(TypeName = "varchar")]
+
         [DataMember]
         public string Mobile { get; set; }
+        [DataMember]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public DateTime CreateDate { get; set; }
+
     }
     #endregion
 
@@ -67,13 +70,33 @@ namespace gmcscoServices.Model
         [Column(TypeName = "varchar")]
         public string CategoryName { get; set; }
         [DataMember]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreateDate { get; set; }
 
-       
+
     }
     #endregion
+    #region PrivacyType
+    [DataContract]
+    [Table("PrivacyType")]
+    public class PrivacyType
+    {
+        [Key]
+        [DataMember]
+        public int PrivacyID { get; set; }
+
+        [DataMember]
+        [MaxLength(150)]
+        [Column(TypeName = "varchar")]
+        public string PrivacyTypeName { get; set; }
+        [DataMember]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public DateTime CreateDate { get; set; }
 
 
+    }
+
+    #endregion
     #region ["Return Values"]
     [DataContract]
     public class ReturnValues

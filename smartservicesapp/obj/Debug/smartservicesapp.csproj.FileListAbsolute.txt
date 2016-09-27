@@ -1,0 +1,12 @@
+E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.csprojResolveAssemblyReference.cache
+E:\PawanProject\smartservicesWebServices\smartservicesapp\bin\smartservicesapp.dll.config
+E:\PawanProject\smartservicesWebServices\smartservicesapp\bin\smartservicesapp.dll
+E:\PawanProject\smartservicesWebServices\smartservicesapp\bin\smartservicesapp.pdb
+E:\PawanProject\smartservicesWebServices\smartservicesapp\bin\EntityFramework.dll
+E:\PawanProject\smartservicesWebServices\smartservicesapp\bin\EntityFramework.SqlServer.dll
+E:\PawanProject\smartservicesWebServices\smartservicesapp\bin\EntityFramework.xml
+E:\PawanProject\smartservicesWebServices\smartservicesapp\bin\EntityFramework.SqlServer.xml
+E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.dll
+E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.pdb
+E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.Migrations.Add_RegCateprivacy.resources
+E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.csproj.GenerateResource.Cache
