@@ -82,9 +82,14 @@
     <Compile Include="Migrations\201609270906567_Add_Reg-Cate-privacy.Designer.cs">
       <DependentUpon>201609270906567_Add_Reg-Cate-privacy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610010910240_update_privacy-Category.cs" />
+    <Compile Include="Migrations\201610010910240_update_privacy-Category.Designer.cs">
+      <DependentUpon>201610010910240_update_privacy-Category.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\GmContext.cs" />
     <Compile Include="Model\Models.cs" />
+    <Compile Include="Model\RepsistoryEF.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
@@ -106,6 +111,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201609270906567_Add_Reg-Cate-privacy.resx">
       <DependentUpon>201609270906567_Add_Reg-Cate-privacy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610010910240_update_privacy-Category.resx">
+      <DependentUpon>201610010910240_update_privacy-Category.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

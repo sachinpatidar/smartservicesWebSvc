@@ -10,3 +10,15 @@ E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservice
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.pdb
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.Migrations.Add_RegCateprivacy.resources
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.csproj.GenerateResource.Cache
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.Migrations.Add_RegCateprivacy.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.csproj.GenerateResource.Cache
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\bin\smartservicesapp.dll.config
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\bin\smartservicesapp.dll
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\bin\smartservicesapp.pdb
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\bin\EntityFramework.dll
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\bin\EntityFramework.SqlServer.dll
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\bin\EntityFramework.xml
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\bin\EntityFramework.SqlServer.xml
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.dll
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.pdb
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.Migrations.update_privacyCategory.resources

@@ -1,4 +1,4 @@
-﻿namespace gmcscoServices.Model
+﻿namespace smartservicesapp.Model
 {
     using System.Data.Entity;
     public class GmContext:DbContext

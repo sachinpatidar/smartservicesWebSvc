@@ -1,5 +1,5 @@
 ﻿
-namespace gmcscoServices.Model
+namespace smartservicesapp.Model
 {
     using System;
     using System.ComponentModel.DataAnnotations;
@@ -70,12 +70,15 @@ namespace gmcscoServices.Model
         [Column(TypeName = "varchar")]
         public string CategoryName { get; set; }
         [DataMember]
+        public int CatOrderBy { get; set; }
+      [DataMember]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreateDate { get; set; }
 
 
     }
     #endregion
+
     #region PrivacyType
     [DataContract]
     [Table("PrivacyType")]
@@ -84,6 +87,8 @@ namespace gmcscoServices.Model
         [Key]
         [DataMember]
         public int PrivacyID { get; set; }
+        [DataMember]
+        public int PrivacyOrderBy { get; set; }
 
         [DataMember]
         [MaxLength(150)]
@@ -97,6 +102,7 @@ namespace gmcscoServices.Model
     }
 
     #endregion
+
     #region ["Return Values"]
     [DataContract]
     public class ReturnValues

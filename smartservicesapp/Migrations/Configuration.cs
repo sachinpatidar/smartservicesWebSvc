@@ -5,7 +5,7 @@ namespace smartservicesapp.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<gmcscoServices.Model.GmContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<smartservicesapp.Model.GmContext>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@ namespace smartservicesapp.Migrations
             AutomaticMigrationDataLossAllowed = false;
         }
 
-        protected override void Seed(gmcscoServices.Model.GmContext context)
+        protected override void Seed(smartservicesapp.Model.GmContext context)
         {
             //  This method will be called after migrating to the latest version.
 
