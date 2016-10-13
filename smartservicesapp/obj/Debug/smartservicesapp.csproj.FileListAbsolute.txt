@@ -22,3 +22,4 @@ D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\bin\EntityFramewo
 D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.dll
 D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.pdb
 D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.Migrations.update_privacyCategory.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.csprojResolveAssemblyReference.cache
