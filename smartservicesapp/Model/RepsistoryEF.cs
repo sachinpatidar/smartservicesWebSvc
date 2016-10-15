@@ -25,9 +25,9 @@ public class RepsistoryEF<T> : IDisposable where T : class
         {
             return _db.Set<T>().ToList();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            throw new ArgumentException("There was an error posting your request, Sorry for inconvenience.");
+            throw new ArgumentException(ex.InnerException.Message);
         }
     }
     public List<T> GetListBySelector(Expression<Func<T, bool>> Selector)
@@ -37,9 +37,9 @@ public class RepsistoryEF<T> : IDisposable where T : class
             IQueryable<T> objResult = _db.Set<T>().Where(Selector);
             return objResult.ToList();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            throw new ArgumentException("There was an error posting your request, Sorry for inconvenience.");
+            throw new ArgumentException(ex.InnerException.Message);
         }
     }
     public T Save(T objT)
@@ -50,9 +50,9 @@ public class RepsistoryEF<T> : IDisposable where T : class
             _db.SaveChanges();
             return objT;
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            throw new ArgumentException("There was an error posting your request, Sorry for inconvenience.");
+            throw new ArgumentException(ex.InnerException.Message);
         }
     }
     public T Update(T objT)
@@ -64,9 +64,9 @@ public class RepsistoryEF<T> : IDisposable where T : class
             _db.SaveChanges();
             return objT;
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            throw new ArgumentException("There was an error posting your request, Sorry for inconvenience.");
+            throw new ArgumentException(ex.InnerException.Message);
         }
         finally
         {
@@ -82,9 +82,9 @@ public class RepsistoryEF<T> : IDisposable where T : class
             _db.Entry(objT).State = EntityState.Deleted;
             _db.SaveChanges();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            throw new ArgumentException("There was an error posting your request, Sorry for inconvenience.");
+            throw new ArgumentException(ex.InnerException.Message);
         }
     }
 
@@ -100,9 +100,9 @@ public class RepsistoryEF<T> : IDisposable where T : class
             }
             _db.SaveChanges();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            throw new ArgumentException("There was an error posting your request, Sorry for inconvenience.");
+            throw new ArgumentException(ex.InnerException.Message);
         }
     }
 

@@ -2,6 +2,7 @@
 namespace smartservicesapp.Model
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Runtime.Serialization;
@@ -39,9 +40,9 @@ namespace smartservicesapp.Model
         [DataMember]
         public string Mobile { get; set; }
         [DataMember]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreateDate { get; set; }
 
+    
     }
     #endregion
 
@@ -71,10 +72,10 @@ namespace smartservicesapp.Model
         public string CategoryName { get; set; }
         [DataMember]
         public int CatOrderBy { get; set; }
-      [DataMember]
+        [DataMember]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreateDate { get; set; }
-
+      
 
     }
     #endregion
@@ -102,6 +103,30 @@ namespace smartservicesapp.Model
     }
 
     #endregion
+
+    [DataContract]
+    public class AddBlog
+    {
+
+        [DataMember]
+        [Key]
+        public int BlogId { get; set; }
+        [DataMember]
+        public int UserID { get; set; }
+        [DataMember]
+        public int CategoryID { get; set; }
+        [DataMember]
+        public int FileID { get; set; }
+        [DataMember]
+        [Column(TypeName = "text")]
+        public string textContent { get; set; }
+        [DataMember]
+        public DateTime CreatedDate { get; set; }
+        [DataMember]
+        public DateTime UpdatedDate { get; set; }
+
+
+    }
 
     #region ["Return Values"]
     [DataContract]

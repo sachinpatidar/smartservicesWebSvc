@@ -19,6 +19,14 @@ namespace smartservicesapp
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetPrivacyTypeList/{PrivacyTypeID}")]
         List<PrivacyType> GetPrivacyTypeList(string PrivacyTypeID);
 
+        [OperationContract]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "RegisterUser")]
+        ReturnValues RegisterUser(UserRegister obj);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "LoginUser")]
+        ReturnValues LoginUser(Login obj);
+
     }
 
 

@@ -17,6 +17,7 @@ namespace smartservicesapp
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class Service : IService
     {
+        #region ["GetCategoryList"]
         public List<Category> GetCategoryList(string CategoryID)
         {
             using (TransactionScope trans = new TransactionScope())
@@ -26,13 +27,13 @@ namespace smartservicesapp
                     RepsistoryEF<Category> _o = new global::RepsistoryEF<Model.Category>();
                     int catID = 0;
                     List<Category> lst = new List<Category>();
-                    if (!string.IsNullOrEmpty(CategoryID))
+                    if (CategoryID.Trim() != "L")
                     {
                         catID = int.Parse(CategoryID); lst = _o.GetListBySelector(z => z.CategoryID == catID).ToList();
                     }
                     else
                     {
-                        lst = _o.GetList();
+                        lst = _o.GetList().OrderBy(z => z.CatOrderBy).ToList();
                     }
                     trans.Complete();
                     return lst;
@@ -49,6 +50,9 @@ namespace smartservicesapp
             }
 
         }
+        #endregion
+
+        #region [GetPrivacyTypeList]
         public List<PrivacyType> GetPrivacyTypeList(string PrivacyTypeID)
         {
             using (TransactionScope trans = new TransactionScope())
@@ -58,14 +62,14 @@ namespace smartservicesapp
                     RepsistoryEF<PrivacyType> _o = new global::RepsistoryEF<Model.PrivacyType>();
                     int ID = 0;
                     List<PrivacyType> lst = new List<PrivacyType>();
-                    if (!string.IsNullOrEmpty(PrivacyTypeID))
+                    if (PrivacyTypeID.Trim() != "L")
                     {
                         ID = int.Parse(PrivacyTypeID);
                         lst = _o.GetListBySelector(z => z.PrivacyID == ID).ToList();
                     }
                     else
                     {
-                        lst = _o.GetList();
+                        lst = _o.GetList().OrderBy(z=>z.PrivacyOrderBy).ToList();
                     }
                     trans.Complete();
                     return lst;
@@ -82,7 +86,92 @@ namespace smartservicesapp
             }
 
         }
+        #endregion
 
+
+        public ReturnValues RegisterUser(UserRegister obj)
+        {
+            using (TransactionScope trans = new TransactionScope())
+            {
+                try
+                {
+                    RepsistoryEF<UserRegister> _o = new global::RepsistoryEF<UserRegister>();
+                    obj.CreateDate = DateTime.Now;
+                    var resultValue = _o.Save(obj);
+                    ReturnValues result = null;
+                    if (resultValue != null)
+                    {
+                        result = new ReturnValues
+                        {
+                            Success = "Registeration Successfully Done ",
+                            Source = resultValue.RegistrationID.ToString(),
+                        };
+                    }
+                    trans.Complete();
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    trans.Dispose();
+                    ReturnValues objex = new ReturnValues
+                    {
+                        Failure = ex.Message,
+                        Source = WebOperationContext.Current.IncomingRequest.UriTemplateMatch.RequestUri.AbsoluteUri,
+                    };
+                    throw new WebFaultException<ReturnValues>(objex, System.Net.HttpStatusCode.InternalServerError);
+                }
+                finally
+                {
+                    trans.Dispose();
+                }
+            }
+        }
+
+        public ReturnValues LoginUser(Login obj)
+        {
+            using (TransactionScope trans = new TransactionScope())
+            {
+                try
+                {
+                    RepsistoryEF<UserRegister> _o = new global::RepsistoryEF<UserRegister>();
+
+                    var resultValue = _o.GetListBySelector(z => z.UserName == obj.UserName && z.Password == obj.Password).FirstOrDefault();
+                    ReturnValues result = null;
+                    if (resultValue != null)
+                    {
+                        result = new ReturnValues
+                        {
+                            Success = "Login Successfully",
+                            Source = resultValue.RegistrationID.ToString(),
+                        };
+                    }
+                    else
+                    {
+                        result = new ReturnValues
+                        {
+                            Success = "Login Failed, Please enter correct username and password",
+                            Source = "0",
+                        };
+                    }
+                    trans.Complete();
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    trans.Dispose();
+                    ReturnValues objex = new ReturnValues
+                    {
+                        Failure = ex.Message,
+                        Source = WebOperationContext.Current.IncomingRequest.UriTemplateMatch.RequestUri.AbsoluteUri,
+                    };
+                    throw new WebFaultException<ReturnValues>(objex, System.Net.HttpStatusCode.InternalServerError);
+                }
+                finally
+                {
+                    trans.Dispose();
+                }
+            }
+        }
 
 
 

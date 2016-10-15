@@ -23,3 +23,6 @@ D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartse
 D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.pdb
 D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.Migrations.update_privacyCategory.resources
 D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.csprojResolveAssemblyReference.cache
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.Migrations.userRegistertbl.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.Migrations.AddBlogtbl.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.Migrations.updateBlogtbl.resources

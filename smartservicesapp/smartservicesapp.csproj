@@ -87,6 +87,18 @@
     <Compile Include="Migrations\201610010910240_update_privacy-Category.Designer.cs">
       <DependentUpon>201610010910240_update_privacy-Category.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610131233302_userRegistertbl.cs" />
+    <Compile Include="Migrations\201610131233302_userRegistertbl.Designer.cs">
+      <DependentUpon>201610131233302_userRegistertbl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610131343574_AddBlogtbl.cs" />
+    <Compile Include="Migrations\201610131343574_AddBlogtbl.Designer.cs">
+      <DependentUpon>201610131343574_AddBlogtbl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610131445151_updateBlogtbl.cs" />
+    <Compile Include="Migrations\201610131445151_updateBlogtbl.Designer.cs">
+      <DependentUpon>201610131445151_updateBlogtbl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\GmContext.cs" />
     <Compile Include="Model\Models.cs" />
@@ -102,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\PublishSmartServices.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -115,6 +128,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610010910240_update_privacy-Category.resx">
       <DependentUpon>201610010910240_update_privacy-Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610131233302_userRegistertbl.resx">
+      <DependentUpon>201610131233302_userRegistertbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610131343574_AddBlogtbl.resx">
+      <DependentUpon>201610131343574_AddBlogtbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610131445151_updateBlogtbl.resx">
+      <DependentUpon>201610131445151_updateBlogtbl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

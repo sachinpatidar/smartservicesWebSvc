@@ -1,0 +1,15 @@
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\bin\smartservicesapp.dll.config
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\bin\smartservicesapp.dll
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\bin\smartservicesapp.pdb
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\bin\EntityFramework.dll
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\bin\EntityFramework.SqlServer.dll
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\bin\EntityFramework.xml
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\bin\EntityFramework.SqlServer.xml
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.Migrations.Add_RegCateprivacy.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.Migrations.update_privacyCategory.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.Migrations.userRegistertbl.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.Migrations.AddBlogtbl.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.Migrations.updateBlogtbl.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.csproj.GenerateResource.Cache
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.dll
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.pdb
