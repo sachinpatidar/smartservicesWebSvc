@@ -31,3 +31,4 @@ E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservice
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.Migrations.AddBlogtbl.resources
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.Migrations.updateBlogtbl.resources
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.Migrations.updatecategory.resources
+E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.Migrations.addBlog_updateRegisteration.resources

@@ -103,10 +103,15 @@
     <Compile Include="Migrations\201610150952399_updatecategory.Designer.cs">
       <DependentUpon>201610150952399_updatecategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610241418109_addBlog_updateRegisteration.cs" />
+    <Compile Include="Migrations\201610241418109_addBlog_updateRegisteration.Designer.cs">
+      <DependentUpon>201610241418109_addBlog_updateRegisteration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\GmContext.cs" />
     <Compile Include="Model\Models.cs" />
-    <Compile Include="Model\RepsistoryEF.cs" />
+    <Compile Include="Repository\repoModel.cs" />
+    <Compile Include="Repository\RepsistoryEF.cs" />
     <Compile Include="Service.svc.cs">
       <DependentUpon>Service.svc</DependentUpon>
     </Compile>
@@ -144,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610150952399_updatecategory.resx">
       <DependentUpon>201610150952399_updatecategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610241418109_addBlog_updateRegisteration.resx">
+      <DependentUpon>201610241418109_addBlog_updateRegisteration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

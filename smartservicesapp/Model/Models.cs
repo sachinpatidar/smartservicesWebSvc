@@ -11,7 +11,7 @@ namespace smartservicesapp.Model
     #region Registration
     [DataContract]
     [Table("UserRegister")]
-    public class UserRegister
+    public partial class UserRegister:Repository.UserRegister
     {
         [Key]
         [DataMember]
@@ -41,7 +41,8 @@ namespace smartservicesapp.Model
         public string Mobile { get; set; }
         [DataMember]
         public DateTime CreateDate { get; set; }
-
+        [DataMember]
+        public int FileId { get; set; }
     
     }
     #endregion
@@ -126,11 +127,27 @@ namespace smartservicesapp.Model
         public DateTime CreatedDate { get; set; }
         [DataMember]
         public DateTime UpdatedDate { get; set; }
+       
+
+    }
+    #region uploadfile
+
+    [DataContract]
+    public class FileSetting
+    {
         [DataMember]
-        public string file { get; set; }
+        [Key]
+        public int Id { get; set; }
+        [DataMember]
+        public string FileType { get; set; }
+        [DataMember]
+        [Column(TypeName = "image")]
+        public byte[] File { get; set; }
 
 
     }
+
+    #endregion
 
     #region ["Return Values"]
     [DataContract]

@@ -10,7 +10,7 @@
         }
 
 
-        public virtual DbSet<UserRegister> UserRegister { get; set; }
+        public virtual DbSet<Model.UserRegister> UserRegister { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<PrivacyType> PrivacyType { get; set; }
         public virtual DbSet<AddBlog> AddBlog { get; set; }

@@ -6,7 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using smartservicesapp.Model;
 using System.Transactions;
-
+ 
 using System.ServiceModel.Web;
 using System.Text;
 
@@ -96,15 +96,27 @@ namespace smartservicesapp
                 try
                 {
                     RepsistoryEF<UserRegister> _o = new global::RepsistoryEF<UserRegister>();
-                    obj.CreateDate = DateTime.Now;
+                    // obj.CreateDate = DateTime.Now;
+                    int fileID = 0;
+                    if (obj.FileName != null)
+                    {
+                        
+                        byte[] b = Convert.FromBase64String(obj.FileName);
+                        RepsistoryEF<FileSetting> _F = new global::RepsistoryEF<FileSetting>();
+                        FileSetting objf = new FileSetting { File = b, FileType = Repository.FileType.UserProfile.ToString() };
+                        _F.Save(objf);
+                        fileID= objf.Id;
+                    }
+                    obj.FileId = fileID;
                     var resultValue = _o.Save(obj);
                     ReturnValues result = null;
                     if (resultValue != null)
                     {
+                       
                         result = new ReturnValues
                         {
                             Success = "Registeration Successfully Done ",
-                            Source = resultValue.RegistrationID.ToString(),
+                         //   Source = resultValue.RegistrationID.ToString(),
                         };
                     }
                     trans.Complete();
@@ -133,16 +145,16 @@ namespace smartservicesapp
             {
                 try
                 {
-                    RepsistoryEF<UserRegister> _o = new global::RepsistoryEF<UserRegister>();
+                    RepsistoryEF<Model.UserRegister> _o = new global::RepsistoryEF<Model.UserRegister>();
 
-                    var resultValue = _o.GetListBySelector(z => z.UserName == obj.UserName && z.Password == obj.Password).FirstOrDefault();
+                   var resultValue = _o.GetListBySelector(z => z.UserName == obj.UserName && z.Password == obj.Password).FirstOrDefault();
                     ReturnValues result = null;
                     if (resultValue != null)
                     {
                         result = new ReturnValues
                         {
                             Success = "Login Successfully",
-                            Source = resultValue.RegistrationID.ToString(),
+                    //        Source = resultValue.RegistrationID.ToString(),
                         };
                     }
                     else
@@ -174,12 +186,12 @@ namespace smartservicesapp
         }
 
 
-        public List<AddBlog> UploadImages() {
-            AddBlog a = new AddBlog();
-            RepsistoryEF<AddBlog> _o = new global::RepsistoryEF<AddBlog>();
-            var g = _o.GetList();
-            return g;
-        }
+        //public List<AddBlog> UploadImages() {
+        //    AddBlog a = new AddBlog();
+        //    RepsistoryEF<AddBlog> _o = new global::RepsistoryEF<AddBlog>();
+        //    var g = _o.GetList();
+        //    return g;
+        //}
 
     }
 }
