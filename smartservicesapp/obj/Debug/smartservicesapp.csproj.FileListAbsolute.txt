@@ -26,3 +26,8 @@ D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartse
 D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.Migrations.userRegistertbl.resources
 D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.Migrations.AddBlogtbl.resources
 D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.Migrations.updateBlogtbl.resources
+E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.Migrations.update_privacyCategory.resources
+E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.Migrations.userRegistertbl.resources
+E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.Migrations.AddBlogtbl.resources
+E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.Migrations.updateBlogtbl.resources
+E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.Migrations.updatecategory.resources

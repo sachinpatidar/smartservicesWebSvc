@@ -174,7 +174,12 @@ namespace smartservicesapp
         }
 
 
-
+        public List<AddBlog> UploadImages() {
+            AddBlog a = new AddBlog();
+            RepsistoryEF<AddBlog> _o = new global::RepsistoryEF<AddBlog>();
+            var g = _o.GetList();
+            return g;
+        }
 
     }
 }

@@ -99,6 +99,10 @@
     <Compile Include="Migrations\201610131445151_updateBlogtbl.Designer.cs">
       <DependentUpon>201610131445151_updateBlogtbl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610150952399_updatecategory.cs" />
+    <Compile Include="Migrations\201610150952399_updatecategory.Designer.cs">
+      <DependentUpon>201610150952399_updatecategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\GmContext.cs" />
     <Compile Include="Model\Models.cs" />
@@ -137,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610131445151_updateBlogtbl.resx">
       <DependentUpon>201610131445151_updateBlogtbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610150952399_updatecategory.resx">
+      <DependentUpon>201610150952399_updatecategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

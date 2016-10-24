@@ -73,6 +73,8 @@ namespace smartservicesapp.Model
         [DataMember]
         public int CatOrderBy { get; set; }
         [DataMember]
+        public string CatClassName { get; set; }
+        [DataMember]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreateDate { get; set; }
       
@@ -124,6 +126,8 @@ namespace smartservicesapp.Model
         public DateTime CreatedDate { get; set; }
         [DataMember]
         public DateTime UpdatedDate { get; set; }
+        [DataMember]
+        public string file { get; set; }
 
 
     }
