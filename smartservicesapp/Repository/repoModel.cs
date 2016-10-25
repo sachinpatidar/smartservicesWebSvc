@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Runtime.Serialization;
 
+
 namespace smartservicesapp.Repository
 {
     public enum FileType
@@ -12,11 +13,11 @@ namespace smartservicesapp.Repository
 
     }
 
-    [DataContract]
-    public partial class UserRegister 
+ [DataContract]
+    public  class UserRegister1 :Model.UserRegister
     {
 
-        [DataMember]
+       [DataMember]
         public string FileName { get; set; }
     }
 

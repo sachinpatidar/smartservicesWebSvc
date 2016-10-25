@@ -6,9 +6,10 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using smartservicesapp.Model;
 using System.Transactions;
- 
+
 using System.ServiceModel.Web;
 using System.Text;
+using smartservicesapp.Repository;
 
 namespace smartservicesapp
 {
@@ -38,7 +39,7 @@ namespace smartservicesapp
                     trans.Complete();
                     return lst;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     trans.Dispose();
                     throw;
@@ -89,7 +90,7 @@ namespace smartservicesapp
         #endregion
 
 
-        public ReturnValues RegisterUser(UserRegister obj)
+        public ReturnValues RegisterUser(UserRegister1 obj)
         {
             using (TransactionScope trans = new TransactionScope())
             {
@@ -103,7 +104,7 @@ namespace smartservicesapp
                         
                         byte[] b = Convert.FromBase64String(obj.FileName);
                         RepsistoryEF<FileSetting> _F = new global::RepsistoryEF<FileSetting>();
-                        FileSetting objf = new FileSetting { File = b, FileType = Repository.FileType.UserProfile.ToString() };
+                        FileSetting objf = new FileSetting { File = b, FileType = FileType.UserProfile.ToString() };
                         _F.Save(objf);
                         fileID= objf.Id;
                     }

@@ -4,6 +4,7 @@ using System.ServiceModel.Web;
 using smartservicesapp.Model;
 using System.Text;
 using System.Collections.Generic;
+using smartservicesapp.Repository;
 
 namespace smartservicesapp
 {
@@ -21,7 +22,7 @@ namespace smartservicesapp
 
         [OperationContract]
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "RegisterUser")]
-        ReturnValues RegisterUser(UserRegister obj);
+        ReturnValues RegisterUser(UserRegister1 obj);
 
         [OperationContract]
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "LoginUser")]

@@ -107,6 +107,14 @@
     <Compile Include="Migrations\201610241418109_addBlog_updateRegisteration.Designer.cs">
       <DependentUpon>201610241418109_addBlog_updateRegisteration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610250728328_addfilesetting.cs" />
+    <Compile Include="Migrations\201610250728328_addfilesetting.Designer.cs">
+      <DependentUpon>201610250728328_addfilesetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610251431432_madechangesinuserregistration.cs" />
+    <Compile Include="Migrations\201610251431432_madechangesinuserregistration.Designer.cs">
+      <DependentUpon>201610251431432_madechangesinuserregistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\GmContext.cs" />
     <Compile Include="Model\Models.cs" />
@@ -152,6 +160,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610241418109_addBlog_updateRegisteration.resx">
       <DependentUpon>201610241418109_addBlog_updateRegisteration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610250728328_addfilesetting.resx">
+      <DependentUpon>201610250728328_addfilesetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610251431432_madechangesinuserregistration.resx">
+      <DependentUpon>201610251431432_madechangesinuserregistration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

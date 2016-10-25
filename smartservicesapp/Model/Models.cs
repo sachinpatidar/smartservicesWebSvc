@@ -11,7 +11,7 @@ namespace smartservicesapp.Model
     #region Registration
     [DataContract]
     [Table("UserRegister")]
-    public partial class UserRegister:Repository.UserRegister
+    public partial class UserRegister
     {
         [Key]
         [DataMember]
