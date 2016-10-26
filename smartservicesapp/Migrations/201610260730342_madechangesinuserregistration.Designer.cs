@@ -13,7 +13,7 @@ namespace smartservicesapp.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201610251431432_madechangesinuserregistration"; }
+            get { return "201610260730342_madechangesinuserregistration"; }
         }
         
         string IMigrationMetadata.Source

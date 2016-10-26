@@ -22,11 +22,13 @@ namespace smartservicesapp
 
         [OperationContract]
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "RegisterUser")]
-        ReturnValues RegisterUser(UserRegister1 obj);
+        ReturnValues RegisterUser(UserRegister obj);
 
         [OperationContract]
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "LoginUser")]
         ReturnValues LoginUser(Login obj);
+
+  
         //[OperationContract]
         //[WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "UploadImages")]
         //List<AddBlog> UploadImages();

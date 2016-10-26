@@ -31,3 +31,5 @@ E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Release\smartservi
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Release\smartservicesapp.dll
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Release\smartservicesapp.pdb
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Release\smartservicesapp.Migrations.addBlog_updateRegisteration.resources
+E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Release\smartservicesapp.Migrations.addfilesetting.resources
+E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Release\smartservicesapp.Migrations.madechangesinuserregistration.resources

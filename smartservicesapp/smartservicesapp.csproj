@@ -111,13 +111,16 @@
     <Compile Include="Migrations\201610250728328_addfilesetting.Designer.cs">
       <DependentUpon>201610250728328_addfilesetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610251431432_madechangesinuserregistration.cs" />
-    <Compile Include="Migrations\201610251431432_madechangesinuserregistration.Designer.cs">
-      <DependentUpon>201610251431432_madechangesinuserregistration.cs</DependentUpon>
+    <Compile Include="Migrations\201610260730342_madechangesinuserregistration.cs" />
+    <Compile Include="Migrations\201610260730342_madechangesinuserregistration.Designer.cs">
+      <DependentUpon>201610260730342_madechangesinuserregistration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\GmContext.cs" />
     <Compile Include="Model\Models.cs" />
+    <Compile Include="PicUpload.ashx.cs">
+      <DependentUpon>PicUpload.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Repository\repoModel.cs" />
     <Compile Include="Repository\RepsistoryEF.cs" />
     <Compile Include="Service.svc.cs">
@@ -128,9 +131,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\ProfilePic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="PicUpload.ashx" />
     <None Include="Properties\PublishProfiles\PublishSmartServices.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -164,8 +169,8 @@
     <EmbeddedResource Include="Migrations\201610250728328_addfilesetting.resx">
       <DependentUpon>201610250728328_addfilesetting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610251431432_madechangesinuserregistration.resx">
-      <DependentUpon>201610251431432_madechangesinuserregistration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610260730342_madechangesinuserregistration.resx">
+      <DependentUpon>201610260730342_madechangesinuserregistration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

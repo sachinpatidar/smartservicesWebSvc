@@ -12,15 +12,4 @@ namespace smartservicesapp.Repository
         UserProfile=1, BlogImage=2
 
     }
-
- [DataContract]
-    public  class UserRegister1 :Model.UserRegister
-    {
-
-       [DataMember]
-        public string FileName { get; set; }
-    }
-
-    
-
 }

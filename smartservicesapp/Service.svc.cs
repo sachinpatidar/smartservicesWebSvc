@@ -90,7 +90,7 @@ namespace smartservicesapp
         #endregion
 
 
-        public ReturnValues RegisterUser(UserRegister1 obj)
+        public ReturnValues RegisterUser(UserRegister obj)
         {
             using (TransactionScope trans = new TransactionScope())
             {

@@ -43,7 +43,10 @@ namespace smartservicesapp.Model
         public DateTime CreateDate { get; set; }
         [DataMember]
         public int FileId { get; set; }
-    
+        [DataMember]
+        [NotMapped]
+        public string FileName { get; set; }
+
     }
     #endregion
 
