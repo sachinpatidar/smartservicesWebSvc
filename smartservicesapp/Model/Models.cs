@@ -45,7 +45,7 @@ namespace smartservicesapp.Model
         public int FileId { get; set; }
         [DataMember]
         [NotMapped]
-        public string FileName { get; set; }
+        public byte[] FileName { get; set; }
 
     }
     #endregion

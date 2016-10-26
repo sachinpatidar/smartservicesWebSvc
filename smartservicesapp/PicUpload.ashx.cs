@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.SessionState;
 using System.IO;
+using smartservicesapp.Model;
+
 
 namespace smartservicesapp
 {
@@ -33,10 +35,21 @@ namespace smartservicesapp
                 postedFile.SaveAs(savepath + @"\" + context.Request.Params[0] + filename.Replace(" ", ""));
                 context.Response.Write(objguid + filename.Replace(" ", ""));
                 context.Response.StatusCode = 200;
-             
-         string Email = context.Request.Params["data"];
+                string[] keys = context.Request.Form.AllKeys;
+                Service s = new Service();
 
-                context.Response.Write("email:" + Email);
+                UserRegister ur = new UserRegister();
+                ur.FirstName = context.Request.Form["FirstName"];
+                ur.LastName= context.Request.Form["LastName"];
+                ur.Email= context.Request.Form["Email"];
+                ur.UserName= context.Request.Form["UserName"];
+                ur.Password= context.Request.Form["Password"];
+                ur.Mobile= context.Request.Form["Mobile"];
+                for (int i = 0; i < keys.Length; i++)
+                {
+                    context.Response.Write(keys[i] + ": " + context.Request.Form[keys[i]] + "<br>");
+                }
+             
             }
             catch (Exception ex)
             {
