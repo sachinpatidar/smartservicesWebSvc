@@ -90,21 +90,21 @@ namespace smartservicesapp
         #endregion
 
 
-        public ReturnValues RegisterUser(UserRegister obj)
+        public void RegisterUser(UserRegister obj)
         {
             using (TransactionScope trans = new TransactionScope())
             {
                 try
                 {
                     RepsistoryEF<UserRegister> _o = new global::RepsistoryEF<UserRegister>();
-                    // obj.CreateDate = DateTime.Now;
+                    obj.CreateDate = DateTime.Now;
                     int fileID = 0;
                     if (obj.FileName != null)
                     {
                         
-                        byte[] b = Convert.FromBase64String(obj.FileName);
+                    //    byte[] b = Convert.FromBase64String(obj.FileName);
                         RepsistoryEF<FileSetting> _F = new global::RepsistoryEF<FileSetting>();
-                        FileSetting objf = new FileSetting { File = b, FileType = FileType.UserProfile.ToString() };
+                        FileSetting objf = new FileSetting { File = obj.FileName, FileType = FileType.UserProfile.ToString() };
                         _F.Save(objf);
                         fileID= objf.Id;
                     }
@@ -121,7 +121,7 @@ namespace smartservicesapp
                         };
                     }
                     trans.Complete();
-                    return result;
+                  //  return result;
                 }
                 catch (Exception ex)
                 {

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.SessionState;
 using System.IO;
 using smartservicesapp.Model;
-
+using System.Web.Script.Serialization;
 
 namespace smartservicesapp
 {
@@ -32,8 +32,8 @@ namespace smartservicesapp
                 if (!Directory.Exists(savepath))
                     Directory.CreateDirectory(savepath);
                 Guid objguid = Guid.NewGuid();
-                postedFile.SaveAs(savepath + @"\" + context.Request.Params[0] + filename.Replace(" ", ""));
-                context.Response.Write(objguid + filename.Replace(" ", ""));
+                postedFile.SaveAs(savepath + @"\" + filename.Replace(" ", ""));
+               
                 context.Response.StatusCode = 200;
                 string[] keys = context.Request.Form.AllKeys;
                 Service s = new Service();
@@ -45,11 +45,25 @@ namespace smartservicesapp
                 ur.UserName= context.Request.Form["UserName"];
                 ur.Password= context.Request.Form["Password"];
                 ur.Mobile= context.Request.Form["Mobile"];
-                for (int i = 0; i < keys.Length; i++)
+                byte[] fileData = null;
+                using (var binaryReader = new BinaryReader( context.Request.InputStream))
                 {
-                    context.Response.Write(keys[i] + ": " + context.Request.Form[keys[i]] + "<br>");
+                    fileData = binaryReader.ReadBytes(context.Request.Files[0].ContentLength);
                 }
-             
+                ur.FileName = fileData;
+          //     s.RegisterUser(ur);
+              ur.FirstName = Convert.ToBase64String(fileData);
+           
+               
+                //foreach (string fileName in context.Request.Files)
+                //{
+                //    HttpPostedFile file = context.Request.Files[fileName];
+
+
+                //}
+               // System.Drawing.Bitmap originalImage = new System.Drawing.Bitmap(context.Request.Files[0].InputStream);
+             string base64= SaveImage(context.Request.Files[0], 250, 250, "Uploads/ProfilePic", context, filename);
+                context.Response.Write(base64);
             }
             catch (Exception ex)
             {
@@ -67,8 +81,9 @@ namespace smartservicesapp
                 return false;
             }
         }
-        public void SaveImage(HttpPostedFile postedFile, int maxWidth, int maxHeight, string savelocation, HttpContext context, string filename)
+        public string SaveImage(HttpPostedFile postedFile, int maxWidth, int maxHeight, string savelocation, HttpContext context, string filename)
         {
+
             System.Drawing.Bitmap originalImage = new System.Drawing.Bitmap(postedFile.InputStream);
             int newWidth = originalImage.Width;
             int newHeight = originalImage.Height;
@@ -128,14 +143,26 @@ namespace smartservicesapp
             thumbnailGraph.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
             var imageRectangle = new System.Drawing.Rectangle(0, 0, newWidth, newHeight);
+            
             thumbnailGraph.DrawImage(image, imageRectangle);
+            string base64String;
+                using (MemoryStream m = new MemoryStream())
+                {
+                    image.Save(m, image.RawFormat);
+                    byte[] imageBytes = m.ToArray();
 
+                    // Convert byte[] to Base64 String
+                     base64String = Convert.ToBase64String(imageBytes);
+                 
+                }
+            
 
             thumbnailBitmap.Save(context.Server.MapPath(savelocation + "/" + filename), image.RawFormat);
 
             thumbnailGraph.Dispose();
             thumbnailBitmap.Dispose();
             image.Dispose();
+            return base64String;
         }
 
     }

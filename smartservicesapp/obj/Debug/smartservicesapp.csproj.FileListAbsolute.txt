@@ -21,7 +21,6 @@ E:\PawanProject\smartservicesWebServices\smartservicesapp\bin\EntityFramework.dl
 E:\PawanProject\smartservicesWebServices\smartservicesapp\bin\EntityFramework.SqlServer.dll
 E:\PawanProject\smartservicesWebServices\smartservicesapp\bin\EntityFramework.xml
 E:\PawanProject\smartservicesWebServices\smartservicesapp\bin\EntityFramework.SqlServer.xml
-E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.csprojResolveAssemblyReference.cache
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.Migrations.Add_RegCateprivacy.resources
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.Migrations.update_privacyCategory.resources
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.Migrations.userRegistertbl.resources
@@ -34,3 +33,4 @@ E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservice
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.csproj.GenerateResource.Cache
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.dll
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.pdb
+E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Debug\smartservicesapp.csprojResolveAssemblyReference.cache
