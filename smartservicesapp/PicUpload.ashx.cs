@@ -6,6 +6,7 @@ using System.Web.SessionState;
 using System.IO;
 using smartservicesapp.Model;
 using System.Web.Script.Serialization;
+using System.Drawing;
 
 namespace smartservicesapp
 {
@@ -51,19 +52,16 @@ namespace smartservicesapp
                     fileData = binaryReader.ReadBytes(context.Request.Files[0].ContentLength);
                 }
                 ur.FileName = fileData;
-          //     s.RegisterUser(ur);
-              ur.FirstName = Convert.ToBase64String(fileData);
-           
+                   s.RegisterUser(ur);
                
-                //foreach (string fileName in context.Request.Files)
-                //{
-                //    HttpPostedFile file = context.Request.Files[fileName];
+               
+                Repository.ResizeImage ri = new Repository.ResizeImage();
+           
+                string base64= ri.SaveImage(context.Request.Files[0].InputStream, 250, 250, "Uploads/ProfilePic", context, filename);
+               
 
 
-                //}
-               // System.Drawing.Bitmap originalImage = new System.Drawing.Bitmap(context.Request.Files[0].InputStream);
-             string base64= SaveImage(context.Request.Files[0], 250, 250, "Uploads/ProfilePic", context, filename);
-                context.Response.Write(base64);
+       context.Response.Write(base64);
             }
             catch (Exception ex)
             {
@@ -81,89 +79,6 @@ namespace smartservicesapp
                 return false;
             }
         }
-        public string SaveImage(HttpPostedFile postedFile, int maxWidth, int maxHeight, string savelocation, HttpContext context, string filename)
-        {
-
-            System.Drawing.Bitmap originalImage = new System.Drawing.Bitmap(postedFile.InputStream);
-            int newWidth = originalImage.Width;
-            int newHeight = originalImage.Height;
-            double aspectRatio = (double)originalImage.Width / (double)originalImage.Height;
-
-            if (newWidth < maxWidth && newHeight < maxHeight)
-            {
-
-            }
-            else if (newWidth < maxWidth && newHeight > maxHeight)
-            {
-                newWidth = maxWidth;
-                newHeight = (int)Math.Round(newWidth / aspectRatio);
-                if (newHeight > maxHeight)
-                {
-                    newHeight = maxHeight;
-                    newWidth = (int)Math.Round(newHeight * aspectRatio);
-
-                }
-            }
-            else if (newWidth > maxWidth && newHeight < maxHeight)
-            {
-                newHeight = maxHeight;
-                newWidth = (int)Math.Round(newHeight * aspectRatio);
-                if (newWidth > maxWidth)
-                {
-                    newWidth = maxWidth;
-                    newHeight = (int)Math.Round(newWidth / aspectRatio);
-                }
-            }
-            else if (newWidth > maxWidth && newHeight > maxHeight)
-            {
-                newWidth = maxWidth;
-                newHeight = (int)Math.Round(newWidth / aspectRatio);
-                if (newHeight > maxHeight)
-                {
-                    newHeight = maxHeight;
-                    newWidth = (int)Math.Round(newHeight * aspectRatio);
-
-                }
-
-                newHeight = maxHeight;
-                newWidth = (int)Math.Round(newHeight * aspectRatio);
-                if (newWidth > maxWidth)
-                {
-                    newWidth = maxWidth;
-                    newHeight = (int)Math.Round(newWidth / aspectRatio);
-                }
-            }
-
-
-            var image = System.Drawing.Image.FromStream(postedFile.InputStream);
-            var thumbnailBitmap = new System.Drawing.Bitmap(newWidth, newHeight);
-            var thumbnailGraph = System.Drawing.Graphics.FromImage(thumbnailBitmap);
-            thumbnailGraph.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            thumbnailGraph.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            thumbnailGraph.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-
-            var imageRectangle = new System.Drawing.Rectangle(0, 0, newWidth, newHeight);
-            
-            thumbnailGraph.DrawImage(image, imageRectangle);
-            string base64String;
-                using (MemoryStream m = new MemoryStream())
-                {
-                    image.Save(m, image.RawFormat);
-                    byte[] imageBytes = m.ToArray();
-
-                    // Convert byte[] to Base64 String
-                     base64String = Convert.ToBase64String(imageBytes);
-                 
-                }
-            
-
-            thumbnailBitmap.Save(context.Server.MapPath(savelocation + "/" + filename), image.RawFormat);
-
-            thumbnailGraph.Dispose();
-            thumbnailBitmap.Dispose();
-            image.Dispose();
-            return base64String;
-        }
-
+       
     }
 }
