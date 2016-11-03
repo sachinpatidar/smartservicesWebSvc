@@ -28,13 +28,25 @@ namespace smartservicesapp
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "LoginUser")]
         ReturnValues LoginUser(Login obj);
 
-  
-        //[OperationContract]
-        //[WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "UploadImages")]
-        //List<AddBlog> UploadImages();
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetUserInfo/{UserID}")]
+        List<UserRegister> GetUserInfo(string UserID);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "AddBlogs")]
+        void AddBlogs(AddBlog obj);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetfileInfo/{fileID}")]
+        List<FileSetting> GetfileInfo(string fileID);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetDocuments/{SourceID}/{Filtype}")]
+        List<FileSetting> GetDocuments(string SourceID, string Filtype);
+
     }
 
 
- 
+
 
 }

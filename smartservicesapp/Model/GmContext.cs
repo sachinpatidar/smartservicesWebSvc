@@ -14,6 +14,7 @@
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<PrivacyType> PrivacyType { get; set; }
         public virtual DbSet<AddBlog> AddBlog { get; set; }
+        public virtual DbSet<BlogDocument> BlogDocument { get; set; }
         public virtual DbSet<FileSetting> FileSetting { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

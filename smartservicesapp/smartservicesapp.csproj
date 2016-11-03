@@ -76,6 +76,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetPicHandler.ashx.cs">
+      <DependentUpon>GetPicHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -115,9 +118,24 @@
     <Compile Include="Migrations\201610260730342_madechangesinuserregistration.Designer.cs">
       <DependentUpon>201610260730342_madechangesinuserregistration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611031345513_addUpdatefileInfos.cs" />
+    <Compile Include="Migrations\201611031345513_addUpdatefileInfos.Designer.cs">
+      <DependentUpon>201611031345513_addUpdatefileInfos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611031347221_addBlogDocument.cs" />
+    <Compile Include="Migrations\201611031347221_addBlogDocument.Designer.cs">
+      <DependentUpon>201611031347221_addBlogDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611031413495_updateFileSettings.cs" />
+    <Compile Include="Migrations\201611031413495_updateFileSettings.Designer.cs">
+      <DependentUpon>201611031413495_updateFileSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\GmContext.cs" />
     <Compile Include="Model\Models.cs" />
+    <Compile Include="PicBlog.ashx.cs">
+      <DependentUpon>PicBlog.ashx</DependentUpon>
+    </Compile>
     <Compile Include="PicUpload.ashx.cs">
       <DependentUpon>PicUpload.ashx</DependentUpon>
     </Compile>
@@ -131,11 +149,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Pictures\Profile\" />
+    <Folder Include="Uploads\BlogDoc\" />
     <Folder Include="Uploads\ProfilePic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="PicUpload.ashx" />
+    <Content Include="GetPicHandler.ashx" />
+    <Content Include="PicBlog.ashx" />
     <None Include="Properties\PublishProfiles\PublishSmartServices.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -172,6 +194,15 @@
     <EmbeddedResource Include="Migrations\201610260730342_madechangesinuserregistration.resx">
       <DependentUpon>201610260730342_madechangesinuserregistration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611031345513_addUpdatefileInfos.resx">
+      <DependentUpon>201611031345513_addUpdatefileInfos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611031347221_addBlogDocument.resx">
+      <DependentUpon>201611031347221_addBlogDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611031413495_updateFileSettings.resx">
+      <DependentUpon>201611031413495_updateFileSettings.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -188,7 +219,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59591</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:59591/</IISUrl>
+          <IISUrl>http://localhost:59592/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

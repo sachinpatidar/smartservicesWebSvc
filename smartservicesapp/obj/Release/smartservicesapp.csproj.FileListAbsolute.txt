@@ -33,3 +33,10 @@ E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Release\smartservi
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Release\smartservicesapp.Migrations.addBlog_updateRegisteration.resources
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Release\smartservicesapp.Migrations.addfilesetting.resources
 E:\PawanProject\smartservicesWebServices\smartservicesapp\obj\Release\smartservicesapp.Migrations.madechangesinuserregistration.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.Migrations.updatecategory.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.Migrations.addBlog_updateRegisteration.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.Migrations.addfilesetting.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.Migrations.madechangesinuserregistration.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.Migrations.addUpdatefileInfos.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.Migrations.addBlogDocument.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.Migrations.updateFileSettings.resources

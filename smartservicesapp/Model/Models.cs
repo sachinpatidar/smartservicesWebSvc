@@ -46,6 +46,9 @@ namespace smartservicesapp.Model
         [DataMember]
         [NotMapped]
         public byte[] FileName { get; set; }
+        [DataMember]
+        [NotMapped]
+        public string FilePathName { get; set; }
 
     }
     #endregion
@@ -81,7 +84,7 @@ namespace smartservicesapp.Model
         [DataMember]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreateDate { get; set; }
-      
+
 
     }
     #endregion
@@ -122,7 +125,7 @@ namespace smartservicesapp.Model
         [DataMember]
         public int CategoryID { get; set; }
         [DataMember]
-        public int FileID { get; set; }
+        public int PrivacyID { get; set; }
         [DataMember]
         [Column(TypeName = "text")]
         public string textContent { get; set; }
@@ -130,8 +133,23 @@ namespace smartservicesapp.Model
         public DateTime CreatedDate { get; set; }
         [DataMember]
         public DateTime UpdatedDate { get; set; }
-       
+        [DataMember]
+        [NotMapped]
+        public string FileName { get; set; }
 
+    }
+    [DataContract]
+    public class BlogDocument
+    {
+
+        [DataMember]
+        [Key]
+        public int DocumentId { get; set; }
+        public int BlogId { get; set; }
+        [DataMember]
+        public int FileID { get; set; }
+        [DataMember]
+        public DateTime CreatedDate { get; set; }
     }
     #region uploadfile
 
@@ -141,12 +159,21 @@ namespace smartservicesapp.Model
         [DataMember]
         [Key]
         public int Id { get; set; }
+
         [DataMember]
         public string FileType { get; set; }
-        [DataMember]
-        [Column(TypeName = "image")]
-        public byte[] File { get; set; }
 
+        [DataMember]
+        [Column(TypeName = "int")]
+        public int SourceID { get; set; }
+
+        //[DataMember]
+        //[Column(TypeName = "image")]
+        //public byte[] File { get; set; }
+
+        [DataMember]
+        [Column(TypeName = "varchar(max)")]
+        public string FilePath { get; set; }
 
     }
 
