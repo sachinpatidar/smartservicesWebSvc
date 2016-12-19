@@ -40,3 +40,4 @@ D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smart
 D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.Migrations.addUpdatefileInfos.resources
 D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.Migrations.addBlogDocument.resources
 D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.Migrations.updateFileSettings.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Release\smartservicesapp.csprojResolveAssemblyReference.cache

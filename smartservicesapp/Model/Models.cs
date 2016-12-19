@@ -135,7 +135,10 @@ namespace smartservicesapp.Model
         public DateTime UpdatedDate { get; set; }
         [DataMember]
         [NotMapped]
-        public string FileName { get; set; }
+        public List<string> Fileinfo { get; set; }
+        [DataMember]
+        [NotMapped]
+        public List<UserRegister> Userinfo { get; set; }
 
     }
     [DataContract]

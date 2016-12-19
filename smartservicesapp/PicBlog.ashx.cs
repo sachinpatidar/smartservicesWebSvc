@@ -35,7 +35,7 @@ namespace smartservicesapp
                     context.Response.StatusCode = 200;
                     string[] keys = context.Request.Form.AllKeys;
                     Service s = new Service();
-                    string Blogid = (context.Request.Form["BlogId"] != null ? context.Request.Form["BlogId"] : "0");
+                    string Blogid = (context.Request.Form["BlogIDs"] != null ? context.Request.Form["BlogIDs"] : "0");
 
                     Repository.ResizeImage ri = new Repository.ResizeImage();
                     string base64 = ri.SaveImage(context.Request.Files[0].InputStream, 250, 250, tempPath, context, filename);

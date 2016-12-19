@@ -34,7 +34,7 @@ namespace smartservicesapp
 
         [OperationContract]
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "AddBlogs")]
-        void AddBlogs(AddBlog obj);
+        ReturnValues AddBlogs(AddBlog obj);
 
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetfileInfo/{fileID}")]
@@ -43,6 +43,10 @@ namespace smartservicesapp
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetDocuments/{SourceID}/{Filtype}")]
         List<FileSetting> GetDocuments(string SourceID, string Filtype);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetBlogList/{BlogID}/{CategoryID}")]
+        List<AddBlog> GetBlogList(string BlogID, string CategoryID);
 
     }
 
