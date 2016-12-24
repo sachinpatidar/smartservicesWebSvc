@@ -1,0 +1,273 @@
+<html>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <style>
+        html, body, #map_canvas {
+            height: 500px;
+            width: 500px;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .labels {
+            color: white;
+            background-color: red;
+            font-family: "Lucida Grande", "Arial", sans-serif;
+            font-size: 10px;
+            text-align: center;
+            width: 30px;
+            white-space: nowrap;
+        }
+
+        .pad {
+            margin: 5px 0;
+        }
+    </style>
+
+
+    <script>
+        var wcfURL = "";
+        $(function () {
+            $("#txtUserName").val('Rajeshji');
+            $("#txtfname").val('Rajesh');
+            $("#txtLastName").val('Ji');
+            $("#txtEmailAddress").val('rajeshji@mailinator.com');
+            $("#txtPassword").val("Raj@123");
+            $("#txtStreet").val("2680 ,Cameron Lake Rd");
+            $("#txtCity").val("Okanogan");
+            $("#txtState").val("WA");
+            $("#txtZip").val("98840");
+            $("#txtPhoneNo").val("8827439088");
+            $("#txtMobileNo").val("8827439088");
+            $("#txtPortalID").val("0");
+            $("#txtCategory").val("");
+
+            //   wcfURL = "http://www.spafoo.com/DesktopModules/NS_ClientRegistration/rh.asmx"
+
+            //    wcfURL = "http://localhost:50572/DesktopModules/NS_ClientRegistration/rh.asmx"
+
+            wcfURL = "http://localhost:59592/Service.svc"
+
+
+            $('#ddlServiceType').change(function () {
+                //   alert($(this).val());
+                switch ($(this).val()) {
+                    case "Category":
+                      
+                        $.ajax({
+                            url: wcfURL + "/GetCategoryList/" + $("#txtCategory").val(), type: "GET", contentType: "application/json; charset=utf-8", success: function (data) { alert(data); },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) { alert(textStatus); }
+                        });
+                        break;
+
+                    case "SpaFooRegistration":
+                        var PostData = {
+                            "UserName": $("#txtUserName").val(),
+                            "FirstName": $("#txtfname").val(),
+                            "LastName": $("#txtLastName").val(),
+                            "Email": $("#txtEmailAddress").val(),
+                            "Password": $("#txtPassword").val(),
+                            "Mobile": $("#txtMobileNo").val(),
+                        }
+                        $.ajax({
+                            url: wcfURL + '/RegisterUser',
+                            type: "POST",
+                            data: JSON.stringify(PostData),
+                            dataType: "json",
+                             contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+                                alert(JSON.stringify(data));
+                            },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                alert("Error : " + textStatus);
+                            }
+                        });
+
+
+                        break;
+                    case "Login":
+
+                        var PostData = {
+                            "UserName": $("#txtUserName").val(),
+                            "Password": $("#txtPassword").val(),
+                        }
+
+                        $.ajax({
+                            url: wcfURL + '/LoginUser',
+                            type: "POST",
+                            data: JSON.stringify(PostData),
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+                                alert(JSON.stringify(data));
+                            },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                alert("Error : " + textStatus);
+                            }
+                        });
+
+                        break;
+                    case "Logout":
+                        $.ajax({
+                            url: wcfURL + '/LogOutUser',
+                            type: "POST",
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+                                alert(JSON.stringify(data));
+                            },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                alert("Error : " + textStatus);
+                            }
+                        });
+
+                        break;
+                    case "CallHandler":
+                        var PostData = {
+                            "Username": $("#txtUserName").val(),
+                            "Password": $("#txtPassword").val(),
+                        }
+                        $.ajax({
+                            url: 'http://localhost:61874/Handler1.ashx',
+                            type: "POST", data: PostData,
+                            //dataType: "json",
+                            //contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+                                alert(JSON.stringify(data));
+                            },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                alert("Error : " + textStatus);
+                            }
+                        });
+
+                        break;
+
+                    case "APN":
+                        
+                            var PostData = {
+                                "Devicetoken": $("#txtUserName").val(),
+                                "Messages": $("#txtPassword").val(),
+                            }
+
+                            $.ajax({
+                                url:'http://localhost:61874/SpaServices.svc/SendNotification',
+                                type: "POST",
+                                data: JSON.stringify(PostData),
+                                dataType: "json",
+                                contentType: "application/json; charset=utf-8",
+                                success: function (data) {
+                                    alert(JSON.stringify(data));
+                                },
+                                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                    alert("Error : " + textStatus);
+                                }
+                            });
+
+
+                            break;
+
+                    case "GetProOccupiedSlots":
+                        var PostData = {
+                            "ProID": 75,
+                            "StartDateTime":'08/28/2016',
+                            "EndDateTime": '10/09/2016',
+                        }
+                        $.ajax({
+                            url: 'http://websvc.spafoo.com/SpaServices.svc/GetProOccupiedSlots',
+                            type: "POST", data: JSON.stringify(PostData),
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+                                alert(JSON.stringify(data));
+                            },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                alert("Error : " + textStatus);
+                            }
+                        });
+
+                        break;
+                    case "GetMyNotification":
+                        $.ajax({
+                            url: 'http://localhost:61874/SpaServices.svc' + "/GetMyNotification/135",
+
+                            type: "GET", contentType: "application/json; charset=utf-8", success: function (data) { alert(data); },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) { alert(textStatus); }
+                        });
+                        break;
+
+                }
+            });
+        });
+    </script>
+
+</head>
+<body style="margin-left: 3%;">
+
+
+    <div>
+        <div class="pad">
+            <input type="text" id="txtUserName" placeholder="User Name" />
+        </div>
+        <div class="pad">
+            <input type="text" id="txtfname" placeholder="First Name" />
+        </div>
+        <div class="pad">
+            <input type="text" id="txtLastName" placeholder="Last Name" />
+        </div>
+        <div class="pad">
+            <input type="text" id="txtEmailAddress" placeholder="Email Address" />
+        </div>
+        <div class="pad">
+            <input type="text" id="txtPassword" placeholder="Password" />
+        </div>
+        <div class="pad">
+            <input type="text" id="txtPortalID" placeholder="PortalID" />
+        </div>
+        <div class="pad">
+            <input type="text" id="txtStreet" placeholder="Street" />
+        </div>
+        <div class="pad">
+            <input type="text" id="txtCity" placeholder="City" />
+        </div>
+        <div class="pad">
+            <input type="text" id="txtState" placeholder="State" />
+        </div>
+        <div class="pad">
+            <input type="text" id="txtZip" placeholder="Zip Code" />
+        </div>
+        <div class="pad">
+            <input type="text" id="txtPhoneNo" placeholder="Phone No" />
+        </div>
+        <div class="pad">
+            <input type="text" id="txtMobileNo" placeholder="Mobile No" />
+        </div>
+        <div class="pad">
+            <input type="text" id="txtCategory" placeholder="Category" />
+        </div>
+        <div class="pad">
+            <input type="file" id="FileUploads" placeholder="Upload Image" />
+        </div>
+    </div>
+
+
+    <div class="pad">
+        <select id="ddlServiceType">
+            <option value=""> Select Method</option>
+            <option value="Category">Category</option>
+
+            <option value="SpaFooRegistration">Registration</option>
+            <option value="Login">Login</option>
+            <option value="Logout">Logout</option>
+            <option value="ImagePost">Post Image</option>
+            <option value="CallHandler">Call Handler file</option>
+            <option value="APN">Apple Push Notification</option>
+            <option value="GetProOccupiedSlots">Get Pro Occupied Slots</option>
+            <option value="GetMyNotification">Get MyNotification</option>
+
+        </select>
+    </div>
+
+</body>
+
+</html>
