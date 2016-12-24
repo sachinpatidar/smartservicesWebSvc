@@ -16,6 +16,7 @@
         public virtual DbSet<AddBlog> AddBlog { get; set; }
         public virtual DbSet<BlogDocument> BlogDocument { get; set; }
         public virtual DbSet<FileSetting> FileSetting { get; set; }
+        public virtual DbSet<BlogComment> BlogComment { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

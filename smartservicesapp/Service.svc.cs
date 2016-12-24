@@ -18,6 +18,136 @@ namespace smartservicesapp
    // [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class Service : IService
     {
+        #region ["Add_Update_Comment_Likes"]
+        public List<BlogComment> UserComment(string BlogID)
+        {
+            RepsistoryEF<BlogComment> _BlogComm = new global::RepsistoryEF<BlogComment>();
+            int blgid = int.Parse(BlogID);
+            return _BlogComm.GetListBySelector(z => z.BlogId == blgid).ToList();
+        }
+        public ReturnValues DeleteBlogComment(string CommentId)
+        {
+            using (TransactionScope trans = new TransactionScope())
+            {
+                try
+                {
+                    RepsistoryEF<BlogComment> _BlogComm = new global::RepsistoryEF<BlogComment>();
+                    BlogComment _updateblog = new BlogComment();
+                    int blgid = int.Parse(CommentId);
+                    _updateblog = _BlogComm.GetListBySelector(z => z.CommentId == blgid).FirstOrDefault();
+                    _BlogComm.Delete(_updateblog);
+               
+                    ReturnValues objReturn = new ReturnValues
+                    {
+                        Success = "Delete Successfully",
+                        Status=true
+                    };
+                    trans.Complete();
+                    return objReturn;
+                }
+                catch (Exception ex)
+                {
+                    trans.Dispose();
+                    ReturnValues objex = new ReturnValues
+                    {
+                        Failure = ex.Message,
+                        Source = WebOperationContext.Current.IncomingRequest.UriTemplateMatch.RequestUri.AbsoluteUri,
+                    };
+                    throw new WebFaultException<ReturnValues>(objex, System.Net.HttpStatusCode.InternalServerError);
+                }
+                finally
+                {
+                    trans.Dispose();
+                }
+            }
+        }
+
+        public ReturnValues AddUpdateBlogComment(BlogComment obj)
+        {
+            using (TransactionScope trans = new TransactionScope())
+            {
+                try
+                {
+                    RepsistoryEF<BlogComment> _BlogdocF = new global::RepsistoryEF<BlogComment>();
+                    BlogComment _updateblog = new BlogComment();
+                    _updateblog = _BlogdocF.GetListBySelector(z => z.CommentId == obj.CommentId && z.UserID == obj.UserID).FirstOrDefault();
+                    if (_updateblog != null)
+                    {
+                        _updateblog.Comment = obj.Comment;
+                        obj.CreatedDate = DateTime.Now;
+                        _BlogdocF.Update(_updateblog);
+                    }
+                    else
+                    {
+                        obj.CreatedDate = DateTime.Now;
+                        _BlogdocF.Save(obj);
+                    }
+                    trans.Complete();
+                    ReturnValues objReturn = new ReturnValues
+                    {
+                        Success = "Success",Status=true
+                    };
+                    return objReturn;
+                }
+                catch (Exception ex)
+                {
+                    trans.Dispose();
+                    ReturnValues objex = new ReturnValues
+                    {
+                        Failure = ex.Message,
+                        Source = WebOperationContext.Current.IncomingRequest.UriTemplateMatch.RequestUri.AbsoluteUri,
+                    };
+                    throw new WebFaultException<ReturnValues>(objex, System.Net.HttpStatusCode.InternalServerError);
+                }
+                finally
+                {
+                    trans.Dispose();
+                }
+            }
+        }
+
+        public ReturnValues UserLikes(string BlogID, string UserID)
+        {
+            using (TransactionScope trans = new TransactionScope())
+            {
+                try
+                {
+                    RepsistoryEF<AddBlog> _BlogdocF = new global::RepsistoryEF<AddBlog>();
+                    AddBlog _updateblog = new AddBlog();
+                    int BlgID = int.Parse(BlogID);
+                    _updateblog = _BlogdocF.GetListBySelector(z => z.BlogId == BlgID).FirstOrDefault();
+                    if (_updateblog != null)
+                    {
+                        _updateblog.UserLikes = UserID + ",";
+                        _BlogdocF.Update(_updateblog);
+                    }
+                    trans.Complete();
+                    ReturnValues objReturn = new ReturnValues
+                    {
+                        Success = "Success",Status=true
+
+                    };
+                    return objReturn;
+                }
+                catch (Exception ex)
+                {
+                    trans.Dispose();
+                    ReturnValues objex = new ReturnValues
+                    {
+                        Failure = ex.Message,
+                        Source = WebOperationContext.Current.IncomingRequest.UriTemplateMatch.RequestUri.AbsoluteUri,
+                    };
+                    throw new WebFaultException<ReturnValues>(objex, System.Net.HttpStatusCode.InternalServerError);
+                }
+                finally
+                {
+                    trans.Dispose();
+                }
+            }
+        }
+        
+        #endregion
+
         #region ["GetCategoryList"]
         public List<Category> GetCategoryList(string CategoryID)
         {
@@ -88,8 +218,7 @@ namespace smartservicesapp
 
         }
         #endregion
-
-
+        
         #region [Registration/Login]
         public void RegisterUser(UserRegister obj)
         {
@@ -264,8 +393,7 @@ namespace smartservicesapp
 
         }
         #endregion
-
-
+        
         #region ["Documents"]
         public List<FileSetting> GetfileInfo(string fileID)
         {
@@ -361,7 +489,7 @@ namespace smartservicesapp
                     {
                         result = new ReturnValues
                         {
-                            Success = "Blog Successfully Added ",
+                            Success = "Blog Successfully Added ", Status=true,
                             Source = resultValue.BlogId.ToString()
                         };
                     }
@@ -596,6 +724,6 @@ namespace smartservicesapp
 
     #endregion
 
-
+  
 }
  

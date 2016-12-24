@@ -130,6 +130,8 @@ namespace smartservicesapp.Model
         [Column(TypeName = "text")]
         public string textContent { get; set; }
         [DataMember]
+        public string UserLikes { get; set; }
+        [DataMember]
         public DateTime CreatedDate { get; set; }
         [DataMember]
         public DateTime UpdatedDate { get; set; }
@@ -199,6 +201,22 @@ namespace smartservicesapp.Model
 
     }
     #endregion
+
+    [DataContract]
+    public class BlogComment
+    {
+        [DataMember]
+        [Key]
+        public int CommentId { get; set; }
+        public int BlogId { get; set; }
+        [DataMember]
+        [Column(TypeName = "text")]
+        public string Comment { get; set; }
+        [DataMember]
+        public int UserID { get; set; }
+        [DataMember]
+        public DateTime CreatedDate { get; set; }
+    }
 
 
 

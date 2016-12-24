@@ -37,6 +37,10 @@ namespace smartservicesapp
         ReturnValues AddBlogs(AddBlog obj);
 
         [OperationContract]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "AddUpdateBlogComment")]
+        ReturnValues AddUpdateBlogComment(BlogComment obj);
+
+        [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetfileInfo/{fileID}")]
         List<FileSetting> GetfileInfo(string fileID);
 
@@ -47,6 +51,18 @@ namespace smartservicesapp
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetBlogList/{BlogID}/{CategoryID}")]
         List<AddBlog> GetBlogList(string BlogID, string CategoryID);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "UserComment/{BlogID}")]
+        List<BlogComment> UserComment(string BlogID);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "DeleteBlogComment/{CommentId}")]
+        ReturnValues DeleteBlogComment(string CommentId);
+        
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "UserLikes/{BlogID}/{UserID}")]
+        ReturnValues UserLikes(string BlogID, string UserID);
 
     }
 

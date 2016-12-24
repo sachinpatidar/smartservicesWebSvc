@@ -83,8 +83,6 @@
                                 alert("Error : " + textStatus);
                             }
                         });
-
-
                         break;
                     case "Login":
 
@@ -187,14 +185,67 @@
                         });
 
                         break;
-                    case "GetMyNotification":
+                    case "GetBlogList":
                         $.ajax({
-                            url: 'http://localhost:61874/SpaServices.svc' + "/GetMyNotification/135",
+                            url: wcfURL + "/GetBlogList/L/null",
 
                             type: "GET", contentType: "application/json; charset=utf-8", success: function (data) { alert(data); },
                             error: function (XMLHttpRequest, textStatus, errorThrown) { alert(textStatus); }
                         });
                         break;
+
+                    case "UserLikes":
+                        $.ajax({
+                            url: wcfURL+ "/UserLikes/13/5",
+
+                            type: "GET", contentType: "application/json; charset=utf-8", success: function (data) { alert(data); },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) { alert(textStatus); }
+                        });
+                        break;
+
+                    case "DeleteBlogComment":
+                        $.ajax({
+                            url: wcfURL + "/DeleteBlogComment/2",
+
+                            type: "GET", contentType: "application/json; charset=utf-8", success: function (data) { alert(data); },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) { alert(textStatus); }
+                        });
+                        break;
+
+                    case "UserComment":
+                        $.ajax({
+                            url: wcfURL + "/UserComment/13",
+
+                            type: "GET", contentType: "application/json; charset=utf-8", success: function (data) { alert(JSON.stringify( data)); },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) { alert(textStatus); }
+                        });
+                        break;
+                    case "AddUpdateBlogComment":
+
+                        var PostData = {
+                            "CommentId": 0,
+                            "BlogId": 13,
+                            "Comment":"hi this is test comment",
+                                "UserID":5
+                        }
+
+                        $.ajax({
+                            url: wcfURL +'/AddUpdateBlogComment',
+                            type: "POST",
+                            data: JSON.stringify(PostData),
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+                                alert(JSON.stringify(data));
+                            },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                alert("Error : " + textStatus);
+                            }
+                        });
+
+
+                        break;
+
 
                 }
             });
@@ -263,7 +314,11 @@
             <option value="CallHandler">Call Handler file</option>
             <option value="APN">Apple Push Notification</option>
             <option value="GetProOccupiedSlots">Get Pro Occupied Slots</option>
-            <option value="GetMyNotification">Get MyNotification</option>
+            <option value="GetBlogList">GetBlogList</option>
+            <option value="UserComment">UserComment</option>
+            <option value="DeleteBlogComment">DeleteBlogComment</option>
+            <option value="UserLikes">UserLikes</option>
+            <option value="AddUpdateBlogComment">AddUpdateBlogComment</option>
 
         </select>
     </div>
