@@ -118,7 +118,7 @@ namespace smartservicesapp
                     _updateblog = _BlogdocF.GetListBySelector(z => z.BlogId == BlgID).FirstOrDefault();
                     if (_updateblog != null)
                     {
-                        _updateblog.UserLikes = UserID + ",";
+                        _updateblog.UserLikes += UserID + ",";
                         _BlogdocF.Update(_updateblog);
                     }
                     trans.Complete();

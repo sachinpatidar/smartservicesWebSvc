@@ -205,9 +205,10 @@ namespace smartservicesapp.Model
     [DataContract]
     public class BlogComment
     {
-        [DataMember]
+       
         [Key]
-        public int CommentId { get; set; }
+        public int CommentId { get; set; } 
+        [DataMember]
         public int BlogId { get; set; }
         [DataMember]
         [Column(TypeName = "text")]
