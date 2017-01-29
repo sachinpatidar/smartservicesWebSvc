@@ -206,7 +206,8 @@ namespace smartservicesapp.Model
     public class BlogComment
     {
        
-        [Key]
+        [Key] 
+        [DataMember]
         public int CommentId { get; set; } 
         [DataMember]
         public int BlogId { get; set; }

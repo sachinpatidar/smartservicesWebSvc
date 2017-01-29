@@ -64,3 +64,4 @@ E:\GULAM_Work\SmartWebService\smartservicesapp\obj\Release\smartservicesapp.Migr
 E:\GULAM_Work\SmartWebService\smartservicesapp\obj\Release\smartservicesapp.csproj.GenerateResource.Cache
 E:\GULAM_Work\SmartWebService\smartservicesapp\obj\Release\smartservicesapp.dll
 E:\GULAM_Work\SmartWebService\smartservicesapp\obj\Release\smartservicesapp.pdb
+E:\GULAM_Work\SmartWebService\smartservicesapp\obj\Release\smartservicesapp.csprojResolveAssemblyReference.cache

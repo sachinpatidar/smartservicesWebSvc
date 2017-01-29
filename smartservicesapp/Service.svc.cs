@@ -15,7 +15,7 @@ namespace smartservicesapp
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
-   // [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
+    // [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class Service : IService
     {
         #region ["Add_Update_Comment_Likes"]
@@ -36,11 +36,11 @@ namespace smartservicesapp
                     int blgid = int.Parse(CommentId);
                     _updateblog = _BlogComm.GetListBySelector(z => z.CommentId == blgid).FirstOrDefault();
                     _BlogComm.Delete(_updateblog);
-               
+
                     ReturnValues objReturn = new ReturnValues
                     {
                         Success = "Delete Successfully",
-                        Status=true
+                        Status = true
                     };
                     trans.Complete();
                     return objReturn;
@@ -85,7 +85,8 @@ namespace smartservicesapp
                     trans.Complete();
                     ReturnValues objReturn = new ReturnValues
                     {
-                        Success = "Success",Status=true
+                        Success = "Success",
+                        Status = true
                     };
                     return objReturn;
                 }
@@ -124,7 +125,8 @@ namespace smartservicesapp
                     trans.Complete();
                     ReturnValues objReturn = new ReturnValues
                     {
-                        Success = "Success",Status=true
+                        Success = "Success",
+                        Status = true
 
                     };
                     return objReturn;
@@ -145,7 +147,7 @@ namespace smartservicesapp
                 }
             }
         }
-        
+
         #endregion
 
         #region ["GetCategoryList"]
@@ -218,7 +220,7 @@ namespace smartservicesapp
 
         }
         #endregion
-        
+
         #region [Registration/Login]
         public void RegisterUser(UserRegister obj)
         {
@@ -324,7 +326,7 @@ namespace smartservicesapp
                         UID = int.Parse(UserID);
 
                         var lsts = _db.UserRegister.Where(z => z.RegistrationID == UID).Join(
-         _db.FileSetting.Where(z=>z.FileType==FileType.UserProfile.ToString()),
+         _db.FileSetting.Where(z => z.FileType == FileType.UserProfile.ToString()),
          U => U.RegistrationID,
          F => F.SourceID,
          (U, F) => new { u = U, f = F }
@@ -393,7 +395,7 @@ namespace smartservicesapp
 
         }
         #endregion
-        
+
         #region ["Documents"]
         public List<FileSetting> GetfileInfo(string fileID)
         {
@@ -489,7 +491,8 @@ namespace smartservicesapp
                     {
                         result = new ReturnValues
                         {
-                            Success = "Blog Successfully Added ", Status=true,
+                            Success = "Blog Successfully Added ",
+                            Status = true,
                             Source = resultValue.BlogId.ToString()
                         };
                     }
@@ -570,7 +573,7 @@ namespace smartservicesapp
                 int UID = 0;
                 List<AddBlog> lst = new List<AddBlog>();
 
-                if (BlogID!="null" && BlogID.Trim() != "L" )
+                if (BlogID != "null" && BlogID.Trim() != "L")
                 {
                     UID = int.Parse(BlogID);
 
@@ -579,10 +582,11 @@ namespace smartservicesapp
                     {
                         FilePathName = us.f.FilePath,
                         BlogID = us.u.BlogId
+
                     }).AsQueryable();
 
                     // Master Data for Blogs
-                    lst = _db.AddBlog.Where(z => z.BlogId == UID).OrderByDescending(z=>z.BlogId).ToList();
+                    lst = _db.AddBlog.Where(z => z.BlogId == UID).OrderByDescending(z => z.BlogId).ToList();
                     // Add User Information in against of Blog
                     lst.ForEach(a =>
                     {
@@ -612,16 +616,16 @@ namespace smartservicesapp
                             lstFilepath.Add(f.FilePathName);
                         }
                         a.Fileinfo = lstFilepath;
-                            //.ForEach(z => a.Fileinfo.Add(z != null ? z.FilePathName : null));
-                        });
+                        //.ForEach(z => a.Fileinfo.Add(z != null ? z.FilePathName : null));
+                    });
                 }
                 else if (CategoryID != "null" && BlogID.Trim() != "L")
                 {
                     UID = int.Parse(CategoryID);
 
-                   
+
                     // Master Data for Blogs
-                    lst = _db.AddBlog.Where(z => z.CategoryID == UID).OrderByDescending(z=>z.BlogId).ToList();
+                    lst = _db.AddBlog.Where(z => z.CategoryID == UID).OrderByDescending(z => z.BlogId).ToList();
                     // Add User Information in against of Blog
                     lst.ForEach(a =>
                     {
@@ -640,7 +644,7 @@ namespace smartservicesapp
                         });
                         a.Userinfo = lstUserinfo;
                     });
- //List of All the Blog Documents
+                    //List of All the Blog Documents
                     var lsts = _db.BlogDocument.Join(_db.FileSetting.Where(z => z.FileType == FileType.BlogImage.ToString()), U => U.FileID, F => F.Id, (U, F) => new { u = U, f = F }).Select(us => new
                     {
                         FilePathName = us.f.FilePath,
@@ -657,8 +661,8 @@ namespace smartservicesapp
                             lstFilepath.Add(f.FilePathName);
                         }
                         a.Fileinfo = lstFilepath;
-                            //.ForEach(z => a.Fileinfo.Add(z != null ? z.FilePathName : null));
-                        });
+                        //.ForEach(z => a.Fileinfo.Add(z != null ? z.FilePathName : null));
+                    });
                 }
                 else
                 {
@@ -700,8 +704,8 @@ namespace smartservicesapp
                             lstFilepath.Add(f.FilePathName);
                         }
                         a.Fileinfo = lstFilepath;
-                            //.ForEach(z => a.Fileinfo.Add(z != null ? z.FilePathName : null));
-                        });
+                        //.ForEach(z => a.Fileinfo.Add(z != null ? z.FilePathName : null));
+                    });
 
                 }
                 //trans.Complete();
@@ -718,12 +722,65 @@ namespace smartservicesapp
             }
         }
 
+        #region["ForgetPassword"]
+        public ReturnValues Consultant(string emailID)
+        {
+            using (TransactionScope trans = new TransactionScope())
+            {
+                try
+                {
+                    RepsistoryEF<UserRegister> _o = new global::RepsistoryEF<UserRegister>();
+                    ReturnValues ReturnObj;
+                    var RegisteredUser = _o.GetListBySelector(z => z.Email == emailID).FirstOrDefault();
+
+                    if (_o.GetListBySelector(z => z.Email == emailID).Any())
+                    {
+                        reposSendMail o = new reposSendMail();
+                        var dd = o.contentBody(RegisteredUser);
+                        ReturnObj = new ReturnValues
+                      {
+                          Success = "Success",
+                      };
+                        trans.Complete();
+
+                    }
+                    else
+                    {
+                        ReturnObj = new ReturnValues
+                        {
+                            Success = "Failure",
+                        };
+                    }
+                   return ReturnObj;
+                }
+                catch (Exception ex)
+                {
+                    trans.Dispose();
+
+                    ReturnValues objex = new ReturnValues
+                    {
+                        Failure = ex.Message,
+                        Source = WebOperationContext.Current.IncomingRequest.UriTemplateMatch.RequestUri.AbsoluteUri,
+                    };
+                    throw new WebFaultException<ReturnValues>(objex, System.Net.HttpStatusCode.InternalServerError);
+                }
+                finally
+                {
+                    trans.Dispose();
+                }
+            }
+        }
+
+        #endregion
     }
 
 
 
-    #endregion
+        #endregion
 
-  
+
+
+
+
 }
- 
+
