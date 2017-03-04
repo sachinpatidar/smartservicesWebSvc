@@ -65,3 +65,4 @@ E:\GULAM_Work\SmartWebService\smartservicesapp\obj\Debug\smartservicesapp.csproj
 E:\GULAM_Work\SmartWebService\smartservicesapp\obj\Debug\smartservicesapp.dll
 E:\GULAM_Work\SmartWebService\smartservicesapp\obj\Debug\smartservicesapp.pdb
 E:\GULAM_Work\SmartWebService\smartservicesapp\obj\Debug\smartservicesapp.Migrations.addupdateblogComments.resources
+D:\backupFiles\MyWork\GMCSCO\smartservicesapp\smartservicesapp\obj\Debug\smartservicesapp.Migrations.addupdateblogComments.resources

@@ -59,10 +59,14 @@ namespace smartservicesapp
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "DeleteBlogComment/{CommentId}")]
         ReturnValues DeleteBlogComment(string CommentId);
-        
+
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "UserLikes/{BlogID}/{UserID}")]
         ReturnValues UserLikes(string BlogID, string UserID);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "ForgetPassword/{emailID}")]
+        ReturnValues ForgetPassword(string emailID);
 
     }
 

@@ -723,7 +723,7 @@ namespace smartservicesapp
         }
 
         #region["ForgetPassword"]
-        public ReturnValues Consultant(string emailID)
+        public ReturnValues ForgetPassword(string emailID)
         {
             using (TransactionScope trans = new TransactionScope())
             {
